@@ -1,0 +1,5 @@
+streamlit
+requests
+qrcode[pil]
+Pillow
+reportlab
