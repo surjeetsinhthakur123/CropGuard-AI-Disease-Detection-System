@@ -9,3 +9,4 @@ werkzeug
 tensorflow
 gtts
 opencv-python-headless
+python-dotenv
