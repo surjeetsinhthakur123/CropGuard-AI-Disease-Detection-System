@@ -4,3 +4,7 @@ qrcode[pil]
 Pillow
 reportlab
 flask
+flask
+werkzeug
+tensorflow
+gtts
