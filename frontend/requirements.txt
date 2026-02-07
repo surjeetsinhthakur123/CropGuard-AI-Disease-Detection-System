@@ -1,4 +1,0 @@
-streamlit
-requests
-qrcode[pil]
-Pillow
