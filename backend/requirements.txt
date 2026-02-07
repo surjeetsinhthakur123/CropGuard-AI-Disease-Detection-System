@@ -8,4 +8,4 @@ flask
 werkzeug
 tensorflow
 gtts
-cv2
+opencv-python-headless
