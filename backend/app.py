@@ -286,15 +286,9 @@ def health():
 # ===================== RUN SERVER ========================
 # =========================================================
 if __name__ == "__main__":
-    app.run(debug=True)
-
-# =========================================================
-# ============== RENDER COMPATIBLE RUNNER =================
-# =========================================================
-if os.environ.get("RENDER"):
     port = int(os.environ.get("PORT", 5000))
     app.run(
         host="0.0.0.0",
         port=port,
-        debug=False
+        debug=not os.environ.get("RENDER")
     )
