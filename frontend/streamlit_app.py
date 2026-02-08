@@ -165,6 +165,7 @@ T = LANG[language]
 t = lambda k: T[k]
 
 # ================= HEADER =================
+# ================= HEADER =================
 left_col, right_col = st.columns([4, 1])
 
 with left_col:
@@ -178,8 +179,9 @@ with left_col:
         unsafe_allow_html=True
     )
 
-BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-logo_path = os.path.join(BASE_DIR, "assets", "logo.png")
+with right_col:
+    BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+    logo_path = os.path.join(BASE_DIR, "assets", "logo.png")
 
 if os.path.exists(logo_path):
     st.image(logo_path, width=110)
@@ -635,6 +637,7 @@ st.markdown(f"""
 </div>
 
 """, unsafe_allow_html=True)
+
 
 
 
