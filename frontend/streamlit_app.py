@@ -12,6 +12,15 @@ import socket
 from datetime import datetime
 
 # ======================================================
+# ================ BACKEND CONFIG ======================
+# ======================================================
+BACKEND_URL = os.getenv(
+    "BACKEND_URL",
+    "https://cropguard-ai-disease-detection-system.onrender.com"
+)
+
+
+# ======================================================
 # ================ OFFLINE HELPERS =====================
 # ======================================================
 OFFLINE_QUEUE_FILE = "offline_results.json"
@@ -191,10 +200,11 @@ city = st.sidebar.text_input("City", "Pune")
 
 try:
     weather_res = requests.get(
-        "http://127.0.0.1:5000/weather",
+        f"{BACKEND_URL}/weather",
         params={"city": city},
         timeout=10
     ).json()
+
 
     st.sidebar.metric("🌡 Temperature (°C)", weather_res["temperature"])
     st.sidebar.metric("💧 Humidity (%)", weather_res["humidity"])
@@ -301,7 +311,7 @@ if st.button(f"🔍 {t('analyze')}", use_container_width=True):
 
         if online:
                 response = requests.post(
-                    "http://127.0.0.1:5000/analyze",
+                    f"{BACKEND_URL}/analyze",
                     data={
                         "crop": crop,
                         "humidity": humidity,
@@ -532,7 +542,7 @@ else:
                 "correct": True,
                 "comment": "Prediction is correct"
             }
-            requests.post("http://127.0.0.1:5000/feedback", json=feedback_payload)
+            requests.post(f"{BACKEND_URL}/feedback", json=feedback_payload)
             st.toast("✅ Feedback recorded. Thank you!")
 
     with col2:
@@ -544,7 +554,7 @@ else:
                 "correct": False,
                 "comment": "Prediction is incorrect"
             }
-            requests.post("http://127.0.0.1:5000/feedback", json=feedback_payload)
+            requests.post(f"{BACKEND_URL}/feedback", json=feedback_payload)
             st.toast("❌ Marked as incorrect. Thanks for helping us improve!")
 
     with col3:
@@ -560,7 +570,7 @@ else:
                     "correct": None,
                     "comment": other_comment
                 }
-                requests.post("http://127.0.0.1:5000/feedback", json=feedback_payload)
+                requests.post(f"{BACKEND_URL}/feedback", json=feedback_payload)
                 st.toast("📩 Query submitted successfully")
 
     st.markdown("## 📋 Post-Treatment Feedback")
@@ -589,12 +599,12 @@ else:
             "days_after_treatment": days,
             "comment": comment
         }
-        requests.post("http://127.0.0.1:5000/feedback", json=feedback_payload)
+        requests.post(f"{BACKEND_URL}/feedback", json=feedback_payload)
         st.toast("✅ Thank you! Your feedback helps improve the AI.")
 
 st.markdown("### 🌐 Connect with Civora Nexus")
 
-ICON_BASE = "http://127.0.0.1:5000/icons"
+ICON_BASE = f"{BACKEND_URL}/icons"
 
 st.markdown(f"""
 <div style="display:flex; justify-content:center; gap:22px;">
@@ -620,4 +630,5 @@ st.markdown(f"""
         <img src="{ICON_BASE}/short_logo.png" width="26">
     </a>    
 </div>
+
 """, unsafe_allow_html=True)
