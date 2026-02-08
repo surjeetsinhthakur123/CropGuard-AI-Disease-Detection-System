@@ -169,7 +169,6 @@ T = LANG[language]
 t = lambda k: T[k]
 
 # ================= HEADER =================
-# ================= HEADER =================
 left_col, right_col = st.columns([4, 1])
 
 with left_col:
@@ -641,6 +640,7 @@ st.markdown(f"""
 </div>
 
 """, unsafe_allow_html=True)
+
 
 
 
