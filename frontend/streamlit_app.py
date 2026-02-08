@@ -320,7 +320,7 @@ if st.button(f"🔍 {t('analyze')}", use_container_width=True):
                         **({"city": city} if is_camera or image_file is None else {})
                     },
                     files={"image": image_file} if image_file else None,
-                    timeout=60
+                    timeout=180
                 )
 
                 result = response.json()
@@ -632,3 +632,4 @@ st.markdown(f"""
 </div>
 
 """, unsafe_allow_html=True)
+
