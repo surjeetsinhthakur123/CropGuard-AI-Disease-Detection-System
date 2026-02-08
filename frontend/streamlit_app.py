@@ -186,10 +186,10 @@ with right_col:
     BASE_DIR = os.path.dirname(os.path.abspath(__file__))
     logo_path = os.path.join(BASE_DIR, "assets", "logo.png")
 
-if os.path.exists(logo_path):
-    st.image(logo_path, width=110)
-else:
-    st.write("Logo")
+    if os.path.exists(logo_path):
+        st.image(logo_path, width=110)
+    else:
+        st.write("Logo")
 
 st.markdown("---")
 
@@ -640,6 +640,7 @@ st.markdown(f"""
 </div>
 
 """, unsafe_allow_html=True)
+
 
 
 
