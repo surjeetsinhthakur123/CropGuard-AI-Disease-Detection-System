@@ -147,10 +147,11 @@ LANG = {
 st.set_page_config(page_title="CropGuard AI", layout="wide", page_icon="🌱")
 
 # ================= LOAD CSS =================
-css_path = os.path.join(BASE_DIR, "styles.css")
-if os.path.exists(css_path):
-    with open(css_path) as f:
+try:
+    with open("styles.css") as f:
         st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
+except FileNotFoundError:
+    pass
 
 
 st.markdown(
@@ -634,6 +635,7 @@ st.markdown(f"""
 </div>
 
 """, unsafe_allow_html=True)
+
 
 
 
