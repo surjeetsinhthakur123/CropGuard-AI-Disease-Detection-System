@@ -155,7 +155,7 @@ streamlit run app.py
 
 ## 👨‍💻 Author
 **Surjeetsinh Nandkumar Thakur**  
-Final Year CSE | AI & Data Analytics  
+BTech CSE | AI & Data Analytics  
 🌱 *Building practical AI solutions for agriculture*
 
 ---
