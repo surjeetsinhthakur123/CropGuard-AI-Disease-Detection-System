@@ -73,7 +73,7 @@ The system works in **both online (cloud AI)** and **offline (edge AI using Tens
 
 ### 1️⃣ Clone Repository
 ```bash
-git clone https://github.com/your-username/CropGuard-AI.git
+git clone https://github.com/surjeetsinhthakur123/CropGuard-AI-Disease-Detection-System.git
 cd CropGuard-AI
 ```
 
