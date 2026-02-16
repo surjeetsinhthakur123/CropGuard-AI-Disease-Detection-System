@@ -169,10 +169,10 @@ def analyze():
         # ================= VOICE =================
         voice_path = generate_voice_summary(result, language)
 
-if voice_path:
-    result["voice_summary"] = request.host_url.rstrip("/") + voice_path
-else:
-    result["voice_summary"] = None
+        if voice_path:
+           result["voice_summary"] = request.host_url.rstrip("/") + voice_path
+        else:
+           result["voice_summary"] = None
 
         # ================= EXPLAIN IMAGE =================
         if explain_image:
@@ -296,4 +296,5 @@ if __name__ == "__main__":
         port=port,
         debug=not os.environ.get("RENDER")
     )
+
 
